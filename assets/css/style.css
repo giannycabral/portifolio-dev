@@ -1,0 +1,1224 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* Estilos gerais */
+body {
+    font-family: 'Press Start 2P', cursive;
+    background-color: #fce7f3;
+    /* Rosa claro kawaii */
+    color: #831843;
+    overflow-x: hidden;
+    image-rendering: pixelated;
+    min-height: 100vh;
+    padding: 1rem;
+    background-image:
+        radial-gradient(#fbcfe8 2px, transparent 2px),
+        radial-gradient(#fbcfe8 2px, transparent 2px);
+    background-size: 32px 32px;
+    background-position: 0 0, 16px 16px;
+}
+
+/* Container principal */
+.container-jogo {
+    max-width: 72rem;
+    margin: 0 auto;
+    background-color: rgba(255, 255, 255, 0.95);
+    border: 8px solid #f9a8d4;
+    box-shadow: 0 0 0 8px #f472b6, 0 0 0 16px #db2777;
+    padding: 1rem;
+    position: relative;
+}
+
+.container-jogo::before {
+    content: "";
+    position: absolute;
+    top: -24px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 48px;
+    height: 48px;
+    background-image: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="%23f472b6"><path d="M9.653 16.915l-.005-.003-.019-.01a20.759 20.759 0 01-1.162-.682 22.045 22.045 0 01-2.582-1.9C4.045 12.733 2 10.352 2 7.5a4.5 4.5 0 018-2.828A4.5 4.5 0 0118 7.5c0 2.852-2.044 5.233-3.885 6.82a22.049 22.049 0 01-3.744 2.582l-.019.01-.005.003h-.002a.739.739 0 01-.69.001l-.002-.001z"/></svg>');
+    filter: drop-shadow(2px 2px 0 #831843);
+}
+
+@media (min-width: 768px) {
+    .container-jogo {
+        padding: 1.5rem;
+    }
+}
+
+/* Botões */
+.botao-pixel {
+    background-color: #f472b6;
+    color: #831843;
+    border: 4px solid #831843;
+    box-shadow: 6px 6px 0 #831843;
+    transition: all 0.1s;
+    text-shadow: 2px 2px 0 #fbcfe8;
+    cursor: pointer;
+    position: relative;
+}
+
+.botao-pixel:hover {
+    transform: translate(3px, 3px);
+    box-shadow: 3px 3px 0 #831843;
+}
+
+.botao-pixel::after {
+    content: "♥";
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    font-size: 16px;
+    color: #f472b6;
+    text-shadow: 2px 2px 0 #831843;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.botao-pixel:hover::after {
+    opacity: 1;
+}
+
+/* Bordas e cantos */
+.borda-pixel {
+    border: 4px solid #f472b6;
+    box-shadow: 8px 8px 0 #db2777;
+}
+
+.cantos-pixel {
+    clip-path: polygon(0% 12px, 12px 12px, 12px 0%, calc(100% - 12px) 0%,
+            calc(100% - 12px) 12px, 100% 12px, 100% calc(100% - 12px),
+            calc(100% - 12px) calc(100% - 12px), calc(100% - 12px) 100%,
+            12px 100%, 12px calc(100% - 12px), 0% calc(100% - 12px));
+}
+
+/* Animações */
+.personagem {
+    animation: flutuar 3s ease-in-out infinite;
+    position: relative;
+}
+
+.personagem::after {
+    content: "✧";
+    position: absolute;
+    top: -12px;
+    right: -12px;
+    color: #f472b6;
+    animation: brilhar 1.5s ease-in-out infinite;
+}
+
+@keyframes brilhar {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.5);
+        opacity: 0.5;
+    }
+}
+
+.carregando {
+    width: 16px;
+    height: 16px;
+    background-color: #ff6b9e;
+    position: relative;
+    animation: carregarPixel 1.5s infinite;
+}
+
+@keyframes carregarPixel {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    25% {
+        transform: translate(24px, 0);
+    }
+
+    50% {
+        transform: translate(24px, 24px);
+    }
+
+    75% {
+        transform: translate(0, 24px);
+    }
+
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+.pulsando {
+    animation: pulsar 1.5s infinite;
+}
+
+@keyframes pulsar {
+    0% {
+        transform: scale(1);
+    }
+
+    25% {
+        transform: scale(1.1);
+    }
+
+    50% {
+        transform: scale(1);
+    }
+
+    75% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Caixa de diálogo */
+.caixa-dialogo {
+    background-color: #fff1f2;
+    border: 4px solid #f472b6;
+    box-shadow: 8px 8px 0 #831843;
+    position: relative;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.caixa-dialogo::before {
+    content: "✿";
+    position: absolute;
+    top: -12px;
+    left: 16px;
+    color: #f472b6;
+    font-size: 18px;
+}
+
+.caixa-dialogo::after {
+    content: "▼";
+    position: absolute;
+    bottom: -20px;
+    right: 20px;
+    color: #f472b6;
+    animation: piscar 1s infinite;
+}
+
+@keyframes piscar {
+    0% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* Mapa e locais */
+.local-mapa {
+    transition: all 0.3s;
+    cursor: pointer;
+    padding: 1.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 2px solid;
+    box-shadow: 0 4px 0 rgba(0, 0, 0, 0.2);
+}
+
+.local-mapa::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, rgba(255, 255, 255, 0.1), transparent);
+    pointer-events: none;
+}
+
+.local-mapa::after {
+    content: "✧";
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    font-size: 1rem;
+    opacity: 0;
+    transition: all 0.3s;
+    color: rgba(255, 255, 255, 0.8);
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+.local-mapa:hover {
+    transform: translateY(-4px);
+    filter: brightness(1.1);
+}
+
+.local-mapa:hover::after {
+    opacity: 1;
+    transform: rotate(360deg);
+}
+
+.local-mapa i {
+    font-size: 2.5rem;
+    margin-bottom: 0.75rem;
+    position: relative;
+}
+
+/* Estilos para os textos do mapa */
+.local-mapa p {
+    font-size: 0.75rem;
+    line-height: 1.4;
+    position: relative;
+    z-index: 1;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+    transition: all 0.3s;
+}
+
+.local-mapa:hover p {
+    transform: scale(1.05);
+    letter-spacing: 1px;
+}
+
+/* Estilos específicos para cada local */
+.local-mapa.fundo-rosa-escuro {
+    border-color: #f9a8d4;
+    background: linear-gradient(135deg, #fdf2f8 0%, #fce7f3 100%);
+}
+
+.local-mapa.fundo-roxo-escuro {
+    border-color: #e879f9;
+    background: linear-gradient(135deg, #fdf4ff 0%, #fae8ff 100%);
+}
+
+.local-mapa.fundo-azul-escuro {
+    border-color: #60a5fa;
+    background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+}
+
+.local-mapa.fundo-indigo-escuro {
+    border-color: #818cf8;
+    background: linear-gradient(135deg, #eef2ff 0%, #e0e7ff 100%);
+}
+
+.local-mapa.fundo-verde-escuro {
+    border-color: #34d399;
+    background: linear-gradient(135deg, #ecfdf5 0%, #d1fae5 100%);
+}
+
+/* Adiciona símbolos decorativos aos textos */
+.local-mapa p::before,
+.local-mapa p::after {
+    content: attr(data-symbol);
+    position: absolute;
+    font-size: 0.875rem;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+}
+
+.local-mapa p::before {
+    left: -15px;
+    transform: translateX(10px);
+}
+
+.local-mapa p::after {
+    right: -15px;
+    transform: translateX(-10px);
+}
+
+.local-mapa:hover p::before,
+.local-mapa:hover p::after {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Efeito de brilho no texto */
+@keyframes textGlow {
+
+    0%,
+    100% {
+        text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+    }
+
+    50% {
+        text-shadow: 2px 2px 10px rgba(255, 182, 193, 0.5);
+    }
+}
+
+.local-mapa:hover p {
+    animation: textGlow 2s infinite;
+}
+
+/* Animação de destaque para o local atual */
+.local-mapa[aria-selected="true"] {
+    transform: scale(1.05);
+    box-shadow: 0 6px 0 rgba(0, 0, 0, 0.2);
+}
+
+.local-mapa[aria-selected="true"]::after {
+    opacity: 1;
+    animation: girarEstrela 2s infinite linear;
+}
+
+@keyframes girarEstrela {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Animação de movimento para os ícones */
+.local-mapa:hover i {
+    animation: pulsoIcone 1s infinite;
+}
+
+@keyframes pulsoIcone {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Efeito de pixel art nas bordas */
+.local-mapa {
+    image-rendering: pixelated;
+    clip-path: polygon(0 4px, 4px 4px, 4px 0,
+            calc(100% - 4px) 0, calc(100% - 4px) 4px, 100% 4px,
+            100% calc(100% - 4px), calc(100% - 4px) calc(100% - 4px), calc(100% - 4px) 100%,
+            4px 100%, 4px calc(100% - 4px), 0 calc(100% - 4px));
+}
+
+/* Barra de status */
+.barra-status {
+    background-color: #fff1f2;
+    border: 4px solid #f472b6;
+    box-shadow: 4px 4px 0 #db2777;
+    padding: 0.75rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.barra-status::after {
+    content: "♡";
+    position: absolute;
+    top: -12px;
+    right: 16px;
+    color: #f472b6;
+    font-size: 24px;
+    text-shadow: 2px 2px 0 #831843;
+}
+
+.barra-vida {
+    background: linear-gradient(90deg, #f472b6, #fda4af);
+    position: relative;
+}
+
+.barra-experiencia {
+    background: linear-gradient(90deg, #e879f9, #d946ef);
+    position: relative;
+}
+
+/* Classes utilitárias */
+.oculto {
+    display: none;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-coluna {
+    flex-direction: column;
+}
+
+.itens-centro {
+    align-items: center;
+}
+
+.itens-inicio {
+    align-items: flex-start;
+}
+
+.espaco-entre {
+    justify-content: space-between;
+}
+
+.centralizado {
+    justify-content: center;
+}
+
+.espaco-1 {
+    gap: 0.25rem;
+}
+
+.espaco-2 {
+    gap: 0.5rem;
+}
+
+.espaco-4 {
+    gap: 1rem;
+}
+
+.espaco-6 {
+    gap: 1.5rem;
+}
+
+.margem-1 {
+    margin-bottom: 0.25rem;
+}
+
+.margem-2 {
+    margin-bottom: 0.5rem;
+}
+
+.margem-3 {
+    margin-bottom: 0.75rem;
+}
+
+.margem-4 {
+    margin-bottom: 1rem;
+}
+
+.margem-6 {
+    margin-bottom: 1.5rem;
+}
+
+.margem-8 {
+    margin-bottom: 2rem;
+}
+
+.direita-2 {
+    margin-right: 0.5rem;
+}
+
+.direita-3 {
+    margin-right: 0.75rem;
+}
+
+.direita-4 {
+    margin-right: 1rem;
+}
+
+.direita-6 {
+    margin-right: 1.5rem;
+}
+
+.topo-6 {
+    margin-top: 1.5rem;
+}
+
+.topo-8 {
+    margin-top: 2rem;
+}
+
+.margem-auto {
+    margin: auto;
+}
+
+/* Grade */
+.grade {
+    display: grid;
+}
+
+.grade-1 {
+    grid-template-columns: 1fr;
+}
+
+.grade-2 {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.grade-3 {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+@media (min-width: 768px) {
+    .md-grade-2 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .md-grade-4 {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .md-grade-5 {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    .md-flex-linha {
+        flex-direction: row;
+    }
+
+    .md-direita-6 {
+        margin-right: 1.5rem;
+    }
+}
+
+/* Tamanhos */
+.largura-3 {
+    width: 0.75rem;
+}
+
+.altura-3 {
+    height: 0.75rem;
+}
+
+.largura-8 {
+    width: 2rem;
+}
+
+.altura-8 {
+    height: 2rem;
+}
+
+.largura-12 {
+    width: 3rem;
+}
+
+.altura-12 {
+    height: 3rem;
+}
+
+.largura-16 {
+    width: 4rem;
+}
+
+.altura-16 {
+    height: 4rem;
+}
+
+.largura-32 {
+    width: 8rem;
+}
+
+.altura-32 {
+    height: 8rem;
+}
+
+.largura-48 {
+    width: 12rem;
+}
+
+.altura-48 {
+    height: 12rem;
+}
+
+.largura-total {
+    width: 100%;
+}
+
+.altura-total {
+    height: 100%;
+}
+
+/* Texto */
+.texto-pequeno {
+    font-size: 0.75rem;
+    line-height: 1.5;
+    letter-spacing: 0.5px;
+    transition: all 0.3s ease;
+    position: relative;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.texto-medio {
+    font-size: 0.875rem;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.texto-grande {
+    font-size: 1.125rem;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.texto-extra-grande {
+    font-size: 1.25rem;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.texto-rosa {
+    color: #f9a8d4;
+}
+
+.texto-centro {
+    text-align: center;
+}
+
+/* Decoração para texto pequeno */
+.texto-pequeno::before,
+.texto-pequeno::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: currentColor;
+    opacity: 0;
+    transition: all 0.3s;
+    border-radius: 50%;
+}
+
+.texto-pequeno::before {
+    left: -8px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.texto-pequeno::after {
+    right: -8px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Hover effect para texto pequeno */
+.local-mapa:hover .texto-pequeno {
+    transform: translateY(-2px);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.local-mapa:hover .texto-pequeno::before,
+.local-mapa:hover .texto-pequeno::after {
+    opacity: 1;
+}
+
+/* Variações de cor para texto pequeno */
+.texto-rosa {
+    color: #f472b6;
+    text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.1);
+}
+
+/* Efeito de brilho no texto pequeno */
+@keyframes textShine {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    100% {
+        background-position: 100% 50%;
+    }
+}
+
+.local-mapa:hover .texto-pequeno {
+    background: linear-gradient(90deg,
+            rgba(255, 255, 255, 0) 0%,
+            rgba(255, 255, 255, 0.2) 50%,
+            rgba(255, 255, 255, 0) 100%);
+    background-size: 200% 100%;
+    animation: textShine 2s linear infinite;
+}
+
+/* Ícones pixelados */
+.pixel-icon {
+    display: inline-block;
+    image-rendering: pixelated;
+    transition: all 0.3s ease;
+    position: relative;
+    filter: drop-shadow(2px 2px 0 rgba(0, 0, 0, 0.2));
+}
+
+.pixel-icon::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 70%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+}
+
+.pixel-icon:hover {
+    transform: scale(1.1) rotate(5deg);
+    filter: drop-shadow(3px 3px 0 rgba(0, 0, 0, 0.3)) brightness(1.2);
+}
+
+.pixel-icon:hover::after {
+    opacity: 1;
+}
+
+/* Cores específicas para ícones */
+.fundo-rosa-escuro .pixel-icon {
+    color: #db2777;
+}
+
+.fundo-roxo-escuro .pixel-icon {
+    color: #c026d3;
+}
+
+.fundo-azul-escuro .pixel-icon {
+    color: #2563eb;
+}
+
+.fundo-indigo-escuro .pixel-icon {
+    color: #4f46e5;
+}
+
+.fundo-verde-escuro .pixel-icon {
+    color: #059669;
+}
+
+/* Animação de brilho para ícones */
+@keyframes iconGlow {
+
+    0%,
+    100% {
+        filter: drop-shadow(2px 2px 0 rgba(0, 0, 0, 0.2));
+    }
+
+    50% {
+        filter: drop-shadow(2px 2px 8px rgba(255, 182, 193, 0.5));
+    }
+}
+
+.local-mapa:hover .pixel-icon {
+    animation: iconGlow 2s infinite, pulsoIcone 1s infinite;
+}
+
+/* Seções de Conteúdo */
+.conteudo-secao {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 2rem;
+    border-radius: 16px;
+    position: relative;
+    margin: 2rem;
+}
+
+.conteudo-secao::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 8px;
+    background: linear-gradient(90deg, #f472b6, #e879f9, #818cf8, #60a5fa, #34d399);
+    border-radius: 8px 8px 0 0;
+}
+
+.secao-cartao {
+    background-color: rgba(255, 255, 255, 0.95);
+    border: 2px solid #f472b6;
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: transform 0.2s;
+    position: relative;
+    overflow: hidden;
+}
+
+.secao-cartao::before {
+    content: "✧";
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    color: #f472b6;
+    font-size: 14px;
+}
+
+.secao-cartao:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(244, 114, 182, 0.2);
+}
+
+.titulo-kawaii {
+    position: relative;
+    text-align: center;
+    margin-bottom: 2rem;
+    padding: 0.5rem;
+}
+
+.titulo-kawaii::before,
+.titulo-kawaii::after {
+    content: "✿";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #f472b6;
+    font-size: 1.25rem;
+}
+
+.titulo-kawaii::before {
+    left: 1rem;
+}
+
+.titulo-kawaii::after {
+    right: 1rem;
+}
+
+.lista-kawaii {
+    list-style: none;
+    padding: 0;
+}
+
+.lista-kawaii li {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.lista-kawaii li::before {
+    content: "♥";
+    position: absolute;
+    left: 0;
+    color: #f472b6;
+}
+
+.barra-nivel {
+    height: 12px;
+    background-color: #fdf2f8;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-top: 0.5rem;
+}
+
+.nivel {
+    height: 100%;
+    background: linear-gradient(90deg, #f472b6, #e879f9);
+    border-radius: 6px;
+    transition: width 0.3s;
+}
+
+/* Níveis de habilidades */
+.nivel-85 {
+    width: 85%;
+}
+
+.nivel-75 {
+    width: 75%;
+}
+
+.nivel-90 {
+    width: 90%;
+}
+
+.nivel-60 {
+    width: 60%;
+}
+
+.cartao-projeto {
+    background-color: rgba(255, 255, 255, 0.95);
+    border: 2px solid #f472b6;
+    border-radius: 12px;
+    padding: 1.5rem;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.cartao-projeto::before {
+    content: "★";
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    color: #f472b6;
+    font-size: 14px;
+}
+
+.cartao-projeto:hover {
+    transform: translateY(-4px) scale(1.02);
+    box-shadow: 0 8px 16px rgba(244, 114, 182, 0.2);
+}
+
+.icone-kawaii {
+    font-size: 1.5rem;
+    color: #f472b6;
+    margin-right: 0.5rem;
+}
+
+.campo-kawaii {
+    background-color: #fff1f2;
+    border: 2px solid #f472b6;
+    border-radius: 8px;
+    padding: 0.75rem;
+    width: 100%;
+    transition: all 0.3s;
+}
+
+.campo-kawaii:focus {
+    outline: none;
+    border-color: #db2777;
+    box-shadow: 0 0 0 3px rgba(244, 114, 182, 0.3);
+}
+
+.botao-kawaii {
+    background-color: #f472b6;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    padding: 0.75rem 1.5rem;
+    font-size: 0.875rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.botao-kawaii:hover {
+    background-color: #db2777;
+    transform: translateY(-2px);
+}
+
+.botao-kawaii::after {
+    content: "♥";
+    position: absolute;
+    top: -20px;
+    right: 10px;
+    color: white;
+    font-size: 14px;
+    opacity: 0;
+    transition: all 0.3s;
+}
+
+.botao-kawaii:hover::after {
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 1;
+}
+
+/* Estilização dos títulos das seções */
+.titulo-secao {
+    font-family: 'Press Start 2P', system-ui, -apple-system, cursive;
+    font-size: 1.5rem;
+    text-align: center;
+    color: #FF69B4;
+    text-shadow: 2px 2px 0px #FF1493,
+        4px 4px 0px rgba(0, 0, 0, 0.2);
+    position: relative;
+    margin-bottom: 2rem;
+    padding: 1rem;
+    letter-spacing: 2px;
+}
+
+.titulo-secao::before,
+.titulo-secao::after {
+    content: '';
+    position: absolute;
+    height: 2px;
+    width: 30%;
+    background: linear-gradient(90deg,
+            transparent,
+            #FF69B4,
+            transparent);
+}
+
+.titulo-secao::before {
+    left: 0;
+    top: 0;
+}
+
+.titulo-secao::after {
+    right: 0;
+    bottom: 0;
+}
+
+/* Animação de brilho para os símbolos ✧ */
+@keyframes sparkle {
+    0% {
+        color: #FF69B4;
+    }
+
+    50% {
+        color: #FFB6C1;
+    }
+
+    100% {
+        color: #FF69B4;
+    }
+}
+
+.titulo-secao-simbolo {
+    display: inline-block;
+    animation: sparkle 1.5s infinite;
+    margin: 0 0.5rem;
+}
+
+/* Variantes de cores para diferentes seções */
+.titulo-sobre {
+    color: #FF69B4;
+    font-family: Press Start 2P, system-ui, -apple-system, cursive;
+}
+
+.titulo-habilidades {
+    color: #9370DB;
+}
+
+.titulo-projetos {
+    color: #4169E1;
+}
+
+.titulo-educacao {
+    color: #6A5ACD;
+}
+
+.titulo-contato {
+    color: #3CB371;
+}
+
+/* Estilos para ícones pixel art */
+.pixel-icon {
+    image-rendering: pixelated;
+    filter: brightness(1.2) contrast(1.1);
+    transform: scale(1);
+    transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.pixel-icon:hover {
+    transform: scale(1.1);
+    filter: brightness(1.4) contrast(1.2);
+}
+
+/* Efeito de pixel art nos ícones do Font Awesome */
+.fa-solid {
+    font-family: 'Font Awesome 6 Free';
+    -webkit-font-smoothing: none;
+    -moz-osx-font-smoothing: none;
+}
+
+/* Cores personalizadas para ícones */
+.local-mapa .pixel-icon {
+    margin-bottom: 0.5rem;
+    color: rgba(255, 255, 255, 0.9);
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.2);
+}
+
+.fundo-rosa-escuro .pixel-icon {
+    color: #be185d;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+}
+
+.fundo-roxo-escuro .pixel-icon {
+    color: #7c3aed;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+}
+
+.fundo-azul-escuro .pixel-icon {
+    color: #1d4ed8;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+}
+
+.fundo-indigo-escuro .pixel-icon {
+    color: #4338ca;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+}
+
+.fundo-verde-escuro .pixel-icon {
+    color: #047857;
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.1);
+}
+
+/* Animação de pulso para ícones */
+@keyframes pixel-pulse {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.botao-navegacao:hover .pixel-icon {
+    animation: pixel-pulse 1s infinite;
+}
+
+/* Animação suave para ícones na carga da página */
+@keyframes iconAppear {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.pixel-icon {
+    animation: iconAppear 0.5s ease-out backwards;
+}
+
+/* Estilos específicos para os textos do mapa */
+.local-mapa .texto-pequeno {
+    color: #831843;
+    font-weight: bold;
+    text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5);
+    position: relative;
+    z-index: 2;
+}
+
+/* Cores específicas para cada seção */
+.local-mapa.fundo-rosa-escuro .texto-pequeno {
+    color: #be185d;
+}
+
+.local-mapa.fundo-roxo-escuro .texto-pequeno {
+    color: #7c3aed;
+}
+
+.local-mapa.fundo-azul-escuro .texto-pequeno {
+    color: #1d4ed8;
+}
+
+.local-mapa.fundo-indigo-escuro .texto-pequeno {
+    color: #4338ca;
+}
+
+.local-mapa.fundo-verde-escuro .texto-pequeno {
+    color: #047857;
+}
+
+/* Efeitos de hover para os textos do mapa */
+.local-mapa:hover .texto-pequeno {
+    transform: scale(1.1);
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+/* Animação de brilho para os textos do mapa */
+@keyframes textoPulsar {
+
+    0%,
+    100% {
+        text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.5);
+    }
+
+    50% {
+        text-shadow: 2px 2px 10px rgba(255, 182, 193, 0.8);
+    }
+}
+
+.local-mapa:hover .texto-pequeno {
+    animation: textoPulsar 2s infinite;
+}
+
+/* Remover sublinhados dos links */
+.link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.link:hover {
+    text-decoration: none;
+    opacity: 0.8;
+    transition: opacity 0.2s ease;
+}

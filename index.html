@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✧ Aventura da DesignPixDev ✧</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="container-jogo">
+        <!-- Barra de Status do Jogo -->
+        <div class="flex espaco-entre itens-centro margem-6 barra-status">
+            <div class="flex itens-centro espaco-4">
+                <div class="personagem">
+                    <img src="https://media.tenor.com/5k_VZG4gXzEAAAAj/eternal-sailor-moon.gif" alt="Pixel Girl"
+                        class="largura-16 altura-16 borda-pixel" />
+                </div>
+                <div>
+                    <h2 class="texto-grande">✦ DesignPixDev ✦</h2>
+                    <p class="texto-pequeno texto-rosa">⭐ Sailor Coder, Nv. 23 - Guardiã do Código Lunar ⭐</p>
+                </div>
+            </div>
+
+            <div class="flex espaco-6">
+                <div>
+                    <p class="texto-pequeno margem-1">♥ VIDA ♥</p>
+                    <div class="largura-32 altura-4 fundo-cinza-escuro">
+                        <div class="altura-total barra-vida barra-vida-85"></div>
+                    </div>
+                </div>
+                <div>
+                    <p class="texto-pequeno margem-1">✧ EXP ✧</p>
+                    <div class="largura-32 altura-4 fundo-cinza-escuro">
+                        <div class="altura-total barra-experiencia barra-experiencia-65"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Caixa de Diálogo -->
+        <div class="caixa-dialogo">
+            <p class="texto-medio">✧ Bem-vindo ao Portfólio Lunar! ✧<br>
+                🌟 Em nome da Lua, explore minha jornada como Guardiã do Código! 🌟<br>
+                ♡ Cada seção é protegida por um poder especial da Lua! ♡</p>
+        </div>
+
+        <!-- Mapa do Jogo -->
+        <div class="grade grade-3 md-grade-5 espaco-4 margem-8" role="tablist">
+            <!-- Sobre Mim -->
+            <button class="local-mapa fundo-rosa-escuro cantos-pixel botao-navegacao" onclick="mostrarSecao('sobre')"
+                onKeyDown="if(event.key === 'Enter') mostrarSecao('sobre')" role="tab" aria-selected="true"
+                tabindex="0">
+                <i class="fa-solid fa-house fa-2x pixel-icon"></i>
+                <p class="texto-pequeno" data-symbol="♡">Sobre Mim</p>
+            </button>
+
+            <!-- Habilidades -->
+            <button class="local-mapa fundo-roxo-escuro cantos-pixel botao-navegacao"
+                onclick="mostrarSecao('habilidades')" onKeyDown="if(event.key === 'Enter') mostrarSecao('habilidades')"
+                role="tab" tabindex="0">
+                <i class="fa-solid fa-wand-magic-sparkles fa-2x pixel-icon"></i>
+                <p class="texto-pequeno" data-symbol="✧">Árvore Mágica</p>
+            </button>
+
+            <!-- Projetos -->
+            <button class="local-mapa fundo-azul-escuro cantos-pixel botao-navegacao" onclick="mostrarSecao('projetos')"
+                onKeyDown="if(event.key === 'Enter') mostrarSecao('projetos')" role="tab" tabindex="0">
+                <i class="fa-solid fa-scroll fa-2x pixel-icon"></i>
+                <p class="texto-pequeno" data-symbol="★">Aventuras</p>
+            </button>
+
+            <!-- Educação -->
+            <button class="local-mapa fundo-indigo-escuro cantos-pixel botao-navegacao"
+                onclick="mostrarSecao('educacao')" onKeyDown="if(event.key === 'Enter') mostrarSecao('educacao')"
+                role="tab" tabindex="0">
+                <i class="fa-solid fa-graduation-cap fa-2x pixel-icon"></i>
+                <p class="texto-pequeno" data-symbol="✿">Academia Mágica</p>
+            </button>
+
+            <!-- Contato -->
+            <button class="local-mapa fundo-verde-escuro cantos-pixel botao-navegacao" onclick="mostrarSecao('contato')"
+                onKeyDown="if(event.key === 'Enter') mostrarSecao('contato')" role="tab" tabindex="0">
+                <i class="fa-solid fa-envelope fa-2x pixel-icon"></i>
+                <p class="texto-pequeno" data-symbol="♪">Correio Mágico</p>
+            </button>
+        </div>
+
+        <!-- Seções de Conteúdo -->
+        <div class="fundo-roxo-escuro borda-pixel">
+            <!-- Conteúdo Padrão (Sobre Mim) -->
+            <div id="sobre" class="conteudo-secao" role="tabpanel">
+                <h2 class="titulo-secao titulo-sobre">
+                    <span class="titulo-secao-simbolo">✧</span>
+                    Sobre DesignPixDev
+                    <span class="titulo-secao-simbolo">✧</span>
+                </h2>
+                <div class="secao-cartao">
+                    <div class="flex flex-coluna md-flex-linha itens-centro margem-6">
+                        <div class="margem-4 md-direita-6">
+                            <img src="https://i.pinimg.com/originals/78/5b/3d/785b3d312255cd55931aff194f3e08cc.gif"
+                                alt="Pixel Girl" class="largura-32 altura-32 borda-pixel pulsando">
+                        </div>
+                        <div>
+                            <p class="texto-pequeno margem-4">
+                                ✨ Olá guerreiro estelar! Sou Usagi Tsukino, uma guardiã digital de 23 anos,
+                                conhecida no mundo da programação como DesignPixDev. Em nome da Lua, transformo bugs em
+                                código limpo
+                                e crio experiências mágicas na web! Durante o dia, luto contra bugs malignos, e à noite,
+                                desenvolvo jogos mágicos com elementos sailor senshi.
+                            </p>
+                            <p class="texto-pequeno">
+                                🌟 Minha jornada começou quando Luna, minha mentora tech, revelou meu destino como
+                                Guardiã do Código Lunar. Agora combino os poderes do Front-end e Back-end para proteger
+                                a web de sites malignos!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex centralizado topo-6">
+                    <img src="https://i.pinimg.com/originals/d7/7e/2b/d77e2b6ed4637cf95bbff5bc07b26c51.gif"
+                        alt="Gato Programando em Pixel Art" class="largura-48 altura-48 borda-pixel">
+                </div>
+            </div>
+
+            <!-- Habilidades -->
+            <div id="habilidades" class="conteudo-secao oculto" role="tabpanel">
+                <h2 class="titulo-secao titulo-habilidades">
+                    <span class="titulo-secao-simbolo">✧</span>
+                    Árvore Mágica de Habilidades
+                    <span class="titulo-secao-simbolo">✧</span>
+                </h2>
+
+                <div class="grade grade-2 md-grade-4 espaco-4 margem-6">
+                    <!-- Frontend -->
+                    <div class="secao-cartao">
+                        <img src="https://cdna.artstation.com/p/assets/images/images/062/682/546/original/vy-nguy-n-phan-an-pink-vintage-pc-huge.gif?1683712564"
+                            alt="Frontend" class="largura-12 altura-12 margem-auto margem-2">
+                        <h3 class="texto-pequeno margem-2 texto-centro">✧ Frontend ✧</h3>
+                        <div class="barra-nivel">
+                            <div class="nivel nivel-85"></div>
+                        </div>
+                        <ul class="lista-kawaii margem-2">
+                            <li>HTML & CSS</li>
+                            <li>JavaScript/TypeScript</li>
+                            <li>React & Vue</li>
+                        </ul>
+                    </div>
+
+                    <!-- Backend -->
+                    <div class="secao-cartao">
+                        <img src="https://fiverr-res.cloudinary.com/images/f_auto,q_auto,t_main1/v1/attachments/delivery/asset/40186913faa9255c1555f63f8d271f1a-1645500509/Gif_01/make-a-pixel-art-icon-or-a-gif-icon-for-you.gif"
+                            alt="Backend" class="largura-12 altura-12 margem-auto margem-2">
+                        <h3 class="texto-pequeno margem-2 texto-centro">✧ Backend ✧</h3>
+                        <div class="barra-nivel">
+                            <div class="nivel nivel-75"></div>
+                        </div>
+                        <ul class="lista-kawaii margem-2">
+                            <li>Node.js</li>
+                            <li>Python</li>
+                            <li>APIs RESTful</li>
+                        </ul>
+                    </div>
+
+                    <!-- Design -->
+                    <div class="secao-cartao">
+                        <img src="https://dinopixel.com/preload/0924/pacman.png" alt="Design"
+                            class="largura-12 altura-12 margem-auto margem-2">
+                        <h3 class="texto-pequeno margem-2 texto-centro">✧ Design ✧</h3>
+                        <div class="barra-nivel">
+                            <div class="nivel nivel-90"></div>
+                        </div>
+                        <ul class="lista-kawaii margem-2">
+                            <li>UI/UX Design</li>
+                            <li>Pixel Art</li>
+                            <li>Figma</li>
+                        </ul>
+                    </div>
+
+                    <!-- Game Dev -->
+                    <div class="secao-cartao">
+                        <img src="https://images.vexels.com/media/users/3/328728/isolated/preview/1f2dbeb62d4e0494d10c305bacfbcf71-controlador-de-jogo-de-pixel-roxo.png"
+                            alt="Game Dev" class="largura-12 altura-12 margem-auto margem-2">
+                        <h3 class="texto-pequeno margem-2 texto-centro">✧ Game Dev ✧</h3>
+                        <div class="barra-nivel">
+                            <div class="nivel nivel-60"></div>
+                        </div>
+                        <ul class="lista-kawaii margem-2">
+                            <li>Unity</li>
+                            <li>Phaser.js</li>
+                            <li>Game Design</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="secao-cartao">
+                    <h3 class="titulo-kawaii texto-pequeno texto-rosa">✧ Poderes em Desenvolvimento ✧</h3>
+                    <div class="flex flex-wrap centralizado espaco-2">
+                        <span class="botao-kawaii">Cristal WebGL</span>
+                        <span class="botao-kawaii">Rust Lunar</span>
+                        <span class="botao-kawaii">Pixel Moon Art</span>
+                        <span class="botao-kawaii">Sailor DevOps</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Projetos -->
+            <div id="projetos" class="conteudo-secao oculto" role="tabpanel">
+                <h2 class="titulo-secao titulo-projetos">
+                    <span class="titulo-secao-simbolo">✧</span>
+                    Minhas Aventuras
+                    <span class="titulo-secao-simbolo">✧</span>
+                </h2>
+
+                <div class="grade grade-1 md-grade-2 espaco-6"> <!-- Projeto 1 -->
+                    <div class="cartao-projeto">
+                        <div class="flex itens-inicio margem-3">
+                            <i class="fa-solid fa-moon fa-2x pixel-icon direita-4"></i>
+                            <div>
+                                <h3 class="texto-pequeno margem-1">✦ Sailor Moon RPG ✦</h3>
+                                <p class="texto-pequeno texto-rosa">Unity, C#, Pixel Art</p>
+                            </div>
+                        </div>
+                        <p class="texto-pequeno margem-3">Um RPG mágico onde você pode se transformar em Sailor Senshi,
+                            lutar contra o Reino Negro e proteger Tóquio com poderes lunares! ✨</p>
+                        <button class="botao-kawaii largura-total">
+                            <i class="fa-solid fa-play pixel-icon margem-direita-2"></i>
+                            Lutar pela Lua
+                        </button>
+                    </div>
+
+                    <!-- Projeto 2 -->
+                    <div class="cartao-projeto">
+                        <div class="flex itens-inicio margem-3">
+                            <i class="fa-solid fa-gem fa-2x pixel-icon direita-4"></i>
+                            <div>
+                                <h3 class="texto-pequeno margem-1">✦ Crystal Tokyo Shop ✦</h3>
+                                <p class="texto-pequeno texto-rosa">React, Node.js, MongoDB</p>
+                            </div>
+                        </div>
+                        <p class="texto-pequeno margem-3">Loja virtual mágica com itens do universo Sailor Moon, broches
+                            de transformação e varinhas lunares! ✨</p>
+                        <button class="botao-kawaii largura-total">
+                            <i class="fa-solid fa-cart-shopping pixel-icon margem-direita-2"></i>
+                            Comprar Itens Mágicos
+                        </button>
+                    </div>
+
+                    <!-- Projeto 3 -->
+                    <div class="cartao-projeto">
+                        <div class="flex itens-inicio margem-3">
+                            <i class="fa-solid fa-star fa-2x pixel-icon direita-4"></i>
+                            <div>
+                                <h3 class="texto-pequeno margem-1">✦ Sailor Chat ✦</h3>
+                                <p class="texto-pequeno texto-rosa">Vue.js, Firebase</p>
+                            </div>
+                        </div>
+                        <p class="texto-pequeno margem-3">Rede social para Sailor Senshi com chat em tempo real,
+                            compartilhamento de poderes e missões em grupo! ✨</p>
+                        <button class="botao-kawaii largura-total">
+                            <i class="fa-solid fa-message pixel-icon margem-direita-2"></i>
+                            Conectar Senshi
+                        </button>
+                    </div>
+
+                    <!-- Projeto 4 -->
+                    <div class="cartao-projeto">
+                        <div class="flex itens-inicio margem-3">
+                            <i class="fa-solid fa-wand-magic-sparkles fa-2x pixel-icon direita-4"></i>
+                            <div>
+                                <h3 class="texto-pequeno margem-1">✦ Moon Portfolio Creator ✦</h3>
+                                <p class="texto-pequeno texto-rosa">Next.js, TailwindCSS</p>
+                            </div>
+                        </div>
+                        <p class="texto-pequeno margem-3">Crie seu próprio portfólio mágico com temas inspirados em
+                            Sailor Moon e transforme sua presença online! ✨</p>
+                        <button class="botao-kawaii largura-total">
+                            <i class="fa-solid fa-paint-brush pixel-icon margem-direita-2"></i>
+                            Transformar Portfolio
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Educação -->
+            <div id="educacao" class="conteudo-secao oculto" role="tabpanel">
+                <h2 class="titulo-secao titulo-educacao">
+                    <span class="titulo-secao-simbolo">✧</span>
+                    Academia Mágica
+                    <span class="titulo-secao-simbolo">✧</span>
+                </h2>
+
+                <div class="secao-cartao margem-6">
+                    <div class="flex itens-centro margem-4">
+                        <i class="fa-solid fa-hat-wizard fa-2x pixel-icon direita-4"></i>
+                        <div>
+                            <h3 class="texto-pequeno">✦ Academia Crystal Tokyo Tech ✦</h3>
+                            <p class="texto-pequeno texto-rosa">Graduação em Desenvolvimento Sailor Senshi | 2022-2026
+                            </p>
+                        </div>
+                    </div>
+                    <p class="texto-pequeno margem-4">Especialização em Transformação Digital Lunar e Desenvolvimento de
+                        Portais Dimensionais. Mestrado em Algoritmos de Cristal Prateado e Tecnologias Sailor. ✨</p>
+
+                    <div class="lista-kawaii">
+                        <div class="flex itens-centro margem-2">
+                            <span class="icone-kawaii">✧</span>
+                            <p class="texto-pequeno">Tese: "Poder do Cristal de Prata na Computação Quântica"</p>
+                        </div>
+                        <div class="flex itens-centro">
+                            <span class="icone-kawaii">✧</span>
+                            <p class="texto-pequeno">Poder Lunar: 9.8/10.0</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="secao-cartao">
+                    <h3 class="titulo-kawaii texto-pequeno texto-rosa">✧ Grimório de Conhecimentos ✧</h3>
+                    <div class="grade grade-2 md-grade-4 espaco-2">
+                        <div class="botao-kawaii texto-centro">
+                            <i class="fa-solid fa-code pixel-icon margem-direita-2"></i>
+                            Estruturas Mágicas
+                        </div>
+                        <div class="botao-kawaii texto-centro">
+                            <i class="fa-solid fa-globe pixel-icon margem-direita-2"></i>
+                            Web Arcana
+                        </div>
+                        <div class="botao-kawaii texto-centro">
+                            <i class="fa-solid fa-paint-brush pixel-icon margem-direita-2"></i>
+                            Design de Mundos
+                        </div>
+                        <div class="botao-kawaii texto-centro">
+                            <i class="fa-solid fa-robot pixel-icon margem-direita-2"></i>
+                            IA Mística
+                        </div>
+                        <div class="botao-kawaii texto-centro">
+                            <i class="fa-solid fa-image pixel-icon margem-direita-2"></i>
+                            Gráficos Encantados
+                        </div>
+                        <div class="botao-kawaii texto-centro">
+                            <i class="fa-solid fa-database pixel-icon margem-direita-2"></i>
+                            Dados Mágicos
+                        </div>
+                        <div class="botao-kawaii texto-centro">
+                            <i class="fa-solid fa-network-wired pixel-icon margem-direita-2"></i>
+                            Redes Místicas
+                        </div>
+                        <div class="botao-kawaii texto-centro">
+                            <i class="fa-solid fa-user-secret pixel-icon margem-direita-2"></i>
+                            UX Kawaii
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contato -->
+            <div id="contato" class="conteudo-secao oculto" role="tabpanel">
+                <h2 class="titulo-secao titulo-contato">
+                    <span class="titulo-secao-simbolo">✧</span>
+                    Portal de Mensagens
+                    <span class="titulo-secao-simbolo">✧</span>
+                </h2>
+
+                <div class="flex flex-coluna md-flex-linha espaco-6">
+                    <div class="flex-1 secao-cartao">
+                        <h3 class="titulo-kawaii texto-pequeno">
+                            <i class="fa-solid fa-paper-plane pixel-icon margem-direita-2"></i>
+                            ✧ Envie sua Mensagem Mágica ✧
+                        </h3>
+                        <form id="formulario-contato" name="formulario-contato">
+                            <div class="margem-4">
+                                <label for="nome" class="texto-pequeno block margem-1">✧ Seu Nome</label>
+                                <input type="text" id="nome" name="nome" class="campo-kawaii"
+                                    placeholder="Digite seu nome mágico" required aria-label="Seu nome"
+                                    autocomplete="name">
+                            </div>
+                            <div class="margem-4">
+                                <label for="email" class="texto-pequeno block margem-1">✧ Seu Email</label>
+                                <input type="email" id="email" name="email" class="campo-kawaii"
+                                    placeholder="seu.email@magico.com" required aria-label="Seu email"
+                                    autocomplete="email">
+                            </div>
+                            <div class="margem-4">
+                                <label for="mensagem" class="texto-pequeno block margem-1">✧ Sua Mensagem</label>
+                                <textarea id="mensagem" name="mensagem" class="campo-kawaii altura-24"
+                                    placeholder="Escreva sua mensagem mágica aqui..." required
+                                    aria-label="Sua mensagem"></textarea>
+                            </div>
+                            <button type="submit" id="enviar" name="enviar" class="botao-kawaii largura-total">
+                                ✉ Enviar Mensagem Mágica ✨
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="flex-1 secao-cartao">
+                        <h3 class="titulo-kawaii texto-pequeno">✧ Encontre-me no Reino Digital ✧</h3>
+
+                        <div class="lista-kawaii">
+                            <div class="flex itens-centro margem-4"> <i
+                                    class="fa-solid fa-envelope pixel-icon direita-3"></i>
+                                <a href="mailto:designpix@dev.com" class="texto-pequeno link">✉ designpix@dev.com</a>
+                            </div>
+                            <div class="flex itens-centro margem-4">
+                                <i class="fa-brands fa-github pixel-icon direita-3"></i>
+                                <a href="https://github.com/designpixdev" class="texto-pequeno link">★
+                                    github.com/designpixdev</a>
+                            </div>
+                            <div class="flex itens-centro margem-4">
+                                <i class="fa-brands fa-linkedin pixel-icon direita-3"></i>
+                                <a href="https://linkedin.com/in/designpixdev" class="texto-pequeno link">✧
+                                    linkedin.com/in/designpixdev</a>
+                            </div>
+                            <div class="flex itens-centro">
+                                <i class="fa-brands fa-twitter pixel-icon direita-3"></i>
+                                <a href="https://twitter.com/designpixdev" class="texto-pequeno link">♪
+                                    @designpixdev</a>
+                            </div>
+                        </div>
+
+                        <div class="topo-8 flex centralizado">
+                            <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/6324be40-c010-41c7-b117-01f2e09a1f6e/deqdf41-4bf2b893-624b-43b5-9f30-d135439cd063.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzYzMjRiZTQwLWMwMTAtNDFjNy1iMTE3LTAxZjJlMDlhMWY2ZVwvZGVxZGY0MS00YmYyYjg5My02MjRiLTQzYjUtOWYzMC1kMTM1NDM5Y2QwNjMuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.gN0iibbFR9swQrHCDyRjDiNN0At_0xcTDrb3Mgw5W4w"
+                                alt="Pixel Mail" class="largura-32 altura-32 borda-pixel">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Rodapé do Jogo -->
+        <div class="flex espaco-entre itens-centro topo-6 texto-pequeno opacidade-75">
+            <div>
+                <p>✧ Aventura da DesignPix v1.0 ✧</p>
+            </div>
+            <div class="flex itens-centro">
+                <div class="carregando direita-2"></div>
+                <p>Online ♡</p>
+            </div>
+        </div>
+    </div>
+    <script src="assets/js/script.js" defer></script>
+</body>
+
+</html>
