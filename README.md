@@ -37,10 +37,10 @@ Este é um portfólio mágico inspirado em Sailor Moon, combinando pixel art, de
 
 1. Clone este repositório mágico:
 ```bash
-git clone https://github.com/seu-usuario/portfolio-lunar.git
+git clone https://github.com/giannycabral/portifolio-dev.git
 ```
 
-2. Abra o portal dimensional (index.html) em seu navegador
+2. Abra o portal dimensional (index.html)em seu navegador
 
 3. Explore as diferentes seções usando a navegação mágica!
 
