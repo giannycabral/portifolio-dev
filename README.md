@@ -7,6 +7,9 @@ Em nome da Lua, eu vou codar! 🌙✨
 ## 🌟 Sobre o Projeto
 
 Este é um portfólio mágico inspirado em Sailor Moon, combinando pixel art, design kawaii e poderes do desenvolvimento web! Como uma verdadeira Guardiã do Código Lunar, transformei um simples portfólio em uma experiência interativa e encantadora.
+#### 👩🏽‍💻 Demonstração
+
+https://github.com/user-attachments/assets/ce4911bd-58c9-4df2-85c2-1f8824cc6050
 
 ### ⭐ Características Especiais
 
